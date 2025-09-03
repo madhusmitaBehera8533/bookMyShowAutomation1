@@ -5,9 +5,9 @@ Feature: City Search Module
 
   @ValidCitySearch
   Scenario: Search for a valid city name
-    When I search for city "Hyderabad"
-    Then I should see "Hyderabad" in the search results
-    And verify dropdown text should be "Hyderabad"
+    When I search for city "Berhampur"
+    Then I should see "Berhampur" in the search results
+    And verify dropdown text should be "Berhampur"
 
   @InvalidCitySearch
   Scenario: Search for an invalid city name
