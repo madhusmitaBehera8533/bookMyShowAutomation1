@@ -1,7 +1,7 @@
 Feature: Gift Card Module
 
  Background:
-    Given User is on home page and select city "Hyderabad"
+    Given User is on home page and select city "Berhampur"
     
   @GiftCardNavigation
   Scenario: Navigate to the Gift Card section and validate Check Gift Card Balance icon
