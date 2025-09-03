@@ -5,10 +5,14 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtils {
+	
+
+
 
     private static final int DEFAULT_TIMEOUT = 10; // seconds
 
@@ -59,4 +63,24 @@ public class WaitUtils {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+    
+    
+    public static void safeClick(WebElement element, WebDriver driver) {
+        int retries = 3;
+        while (retries > 0) {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+                wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+                return;
+            } catch (StaleElementReferenceException e) {
+                retries--;
+                if (retries == 0) {
+                    throw e;
+                }
+            }
+        }
+    }
+
+
+    
 }
