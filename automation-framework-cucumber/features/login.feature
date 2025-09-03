@@ -2,7 +2,7 @@ Feature: Login to BookMyShow
   The feature will validate login functionality with valid and invalid mobile numbers.
 
   Background:
-    Given User is on home page and select city "Hyderabad"
+    Given User is on home page and select city "Berhampur"
 
   @ValidLogin
   Scenario: Valid login with mobile and OTP
